@@ -39,9 +39,13 @@ class TriangleTest(unittest.TestCase):
     
     def test5(self):
         '''checks if invalid scalene triangle returns INVALID type'''
-        actual = Triangle.classify(2, 3, 1)
+        invalid1 = Triangle.classify(3, 2, 5)  # a + b == c
+        invalid2 = Triangle.classify(5, 2, 3)  # a + c == b
+        invalid3 = Triangle.classify(2, 5, 3)  # b + c == a
         expected = Triangle.Type.INVALID
-        self.assertEqual(actual, expected)
+        self.assertEqual(invalid1, expected)
+        self.assertEqual(invalid2, expected)
+        self.assertEqual(invalid3, expected)
     
     def test6(self):
         '''checks if invalid isosceles triangle returns INVALID type'''
